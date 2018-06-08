@@ -20,39 +20,46 @@ type: inNavBar
     <h2>Open Projects</h2>
     <p>Here's what we've been working on recently. Projects are open to all volunteers - if you're interested, just show up at one of our <a href="{{site.meetup_url}}">Tuesday evening hack nights!</a></p>
 
-    <div class="col-4">
-        {% for proj in site.data.projects.active %}
-            <div class='thumb'>
+    <div class="row">
+        <div class="col-4">
+            {% for proj in site.data.projects.active %}
+                <div class='thumb'>
 
-                <b>{{ proj.name }}</b><br>
+                    <h4>{{ proj.name }}</h4>
 
-                {% if proj.description %}
-                	{{ proj.description }} <br>
-            	{% endif %}
+                    {% if proj.description %}
+                        <div>{{ proj.description }}</div>
+                    {% endif %}
 
-                {{ proj.news }} <br>
+                    <div>{{ proj.news }}</div>
 
-                {% if proj.partner %}
-                	<b>Partner: </b> <a href="{{proj.partner_url}}">{{ proj.partner }}</a> <br>
-                {% endif %}
+                    {% if proj.partner %}
+                        <h4>Partner: <a href="{{proj.partner_url}}">{{ proj.partner }}</a></h4> 
+                    {% endif %}
 
-                <b>Links: </b>
-                {% if proj.repo_url %}
-	                   <a href="{{proj.repo_url}}">Repo</a> 
-                {% endif %}
+                    <h4>Links: </h4>
+                    <ul>
+                    {% if proj.repo_url %}
+                        <li>
+                        <a href="{{proj.repo_url}}">Repo</a> 
+                        </li>
+                    {% endif %}
 
-                {% if proj.site_url %}
-                	<a href="{{proj.site_url}}">Site</a>
-                {% endif %}
-                <br>
+                    {% if proj.site_url %}
+                        <li>
+                            <a href="{{proj.site_url}}">Site</a>
+                        </li>
+                    {% endif %}
+                    </ul>
+                    <!-- TODO: write an if -->
+                    {% if proj.seeking %}
+                        <b>Seeking: </b> {{ proj.seeking }}<br>
+                    {% endif %}
 
-                <!-- TODO: write an if -->
-                {% if proj.seeking %}
-                	<b>Seeking: </b> {{ proj.seeking }}<br>
-                {% endif %}
-
-            </div>
-        {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 
 <section>
