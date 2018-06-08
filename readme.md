@@ -10,6 +10,9 @@ This repository makes use of [reveal.js](https://github.com/hakimel/reveal.js). 
 git submodule update --init
 ```
 
+If you want to test a lot of changes to the site live on your computer, follow the instructions to [install Jekyll](https://jekyllrb.com/docs/installation/) and then run 
+`jekyll serve --incremental -w`
+
 ## I want to update the wesite. How do I do that?
 - To add/update jobs, edit `_data/jobs.yml`
 - To add/update events, edit [`_data/events/active.yml`](https://github.com/codeforboston/CFB_static/edit/master/_data/events/active.yml)
